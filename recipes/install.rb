@@ -16,10 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Make sure the Apt cache is updated
 if platform_family?('debian')
-  node.override['apt']['compile_time_update'] = true
-  include_recipe 'apt'
+  include_recipe 'openvpn::apt_repo'
 end
 
 include_recipe 'yum-epel' if platform_family?('rhel')
